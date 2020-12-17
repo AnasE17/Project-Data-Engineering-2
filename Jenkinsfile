@@ -20,6 +20,11 @@ pipeline{
 				}
     	}
     }
+	  stage('Docker Test Env'){
+      steps{
+    sh 'python3 -m pip install -r requirements.txt'
+      }
+    }
 		
     stage('Integration and Unit tests '){
      		steps{
