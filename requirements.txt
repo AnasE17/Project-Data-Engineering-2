@@ -16,7 +16,4 @@ Unidecode==1.1.1
 wincertstore==0.2
 Flask==1.1.2
 Flask-Cors==3.0.9
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('words')
-nltk.download('wordnet')
+
