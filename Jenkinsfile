@@ -8,7 +8,8 @@ pipeline {
   		steps{
   			script{
   				if (env.BRANCH_ENV != 'master') {
-		    		sh "docker build -t app ."
+		    		sh "docker-compose build -t app ."
+				sh "docker-compose up -d"
 		  		}
 				}
     	}
@@ -18,7 +19,7 @@ pipeline {
       steps{
   			script{
   				if (env.BRANCH_ENV != 'master' ) {
-		    		sh 'docker run -p 5000:5000 app'
+		    		//sh 'docker run -p 5000:5000 app'
 		  		}
 				}
     	}
