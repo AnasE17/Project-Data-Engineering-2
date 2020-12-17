@@ -16,7 +16,6 @@ class TestClassifier(unittest.TestCase):
         }
         rep=requests.post('http://localhost:5000/', data=params)
         print("Testing Obama as a query \n")
-        print("result :"+rep.content+"\n")
         self.assertEqual(response.status_code,200)
 
     def test_hillary(self):
@@ -26,7 +25,6 @@ class TestClassifier(unittest.TestCase):
         }
         rep=requests.post('http://localhost:5000/', data=params)
         print("Testing Hillary as a query \n")
-        print("result :"+rep.content+"\n")
         self.assertEqual(response.status_code,200)
 
  
