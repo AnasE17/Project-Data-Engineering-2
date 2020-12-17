@@ -1,14 +1,11 @@
-// Jenkinsfile
-
-pipeline {
+pipeline{
   agent any
-
   stages {
   	stage('Build docker image'){
   		steps{
   			script{
   				if (env.BRANCH_ENV != 'master') {
-		    		sh "docker-compose build"
+		    		sh 'docker-compose build'
 		  		}
 				}
     	}
@@ -18,16 +15,10 @@ pipeline {
       steps{
   			script{
   				if (env.BRANCH_ENV != 'master' ) {
-		    		sh "docker-compose up -d"
+		    		sh 'docker-compose up -d'
 		  		}
 				}
     	}
-    }
-	  
-    stage('Docker Test Env'){
-      steps{
-    		sh 'python3 -m pip install -r requirements.txt'
-      }
     }
 		
     stage('Integration and Unit tests '){
