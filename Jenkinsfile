@@ -5,7 +5,7 @@ pipeline{
   		steps{
   			script{
   				if (env.BRANCH_ENV != 'master') {
-		    		sh 'docker build -t app .'
+		    		bat 'docker build -t app .'
 		  		}
 				}
     	}
@@ -20,7 +20,7 @@ pipeline{
 				}
     	}
     }
-		/*
+		
     stage('Integration and Unit tests '){
      		steps{
      			script{
@@ -45,7 +45,7 @@ pipeline{
     
 		
 		
-		*/
+	
 		
 	
 		stage('push to release'){
@@ -57,7 +57,7 @@ pipeline{
     					bat 'git pull'
     					bat 'git merge origin/develop'
     					bat 'git commit --allow-empty -m "release the application"'
-    					bat 'git push -f https://Kimpouni:Codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
+    					bat 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
 					}
 				}
 				
@@ -90,7 +90,7 @@ pipeline{
      				if (env.BRANCH_NAME == 'release') {
 							bat 'git checkout -b main || git checkout main'
 							bat 'git merge origin/release'
-							bat 'git push -f https://Kimpouni:Codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
+							bat 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
 		    	}
 				}
 			}
