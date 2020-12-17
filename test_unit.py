@@ -1,4 +1,5 @@
 import unittest
+import requests
 
 try:
     from .model import get_tweet_similar, preprocessText
