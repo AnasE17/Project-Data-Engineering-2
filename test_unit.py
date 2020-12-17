@@ -18,12 +18,11 @@ class TestClassifier(unittest.TestCase):
         print("result :"+rep.content+"\n")
         self.assertEqual(response.status_code,200)
 
-
-     def test_hillary(self):
+    def test_hillary(self):
         rep=requests.post('http://localhost:5000/', data=params)
         params = {
-           'txt': "hillary",
-           "form_type": "submit_txt"
+            'txt': "hillary",
+            "form_type": "submit_txt"
         }
         print("Testing Hillary as a query \n")
         print("result :"+rep.content+"\n")
