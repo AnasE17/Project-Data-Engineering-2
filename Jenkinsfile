@@ -5,7 +5,7 @@ pipeline{
   		steps{
   			script{
   				if (env.BRANCH_ENV != 'master') {
-		    		powershell 'docker build -t app .'
+		    		sh 'docker build -t app .'
 		  		}
 				}
     	}
@@ -15,7 +15,7 @@ pipeline{
       steps{
   			script{
   				if (env.BRANCH_ENV != 'master' ) {
-		    		powershell 'docker run -p 5000:5000 app'
+		    		sh 'docker run -p 5000:5000 app'
 		  		}
 				}
     	}
@@ -25,8 +25,8 @@ pipeline{
      		steps{
      			script{
      				if (env.BRANCH_NAME == 'feature' ) {
-							powershell 'python test_unit.py'
-              powershell 'python test_integration.py'
+							sh 'python test_unit.py'
+              sh 'python test_integration.py'
 		    	}
 				}
 			}
@@ -35,7 +35,7 @@ pipeline{
 				steps{
 					script{
     				if (env.BRANCH_NAME == 'develop') {
-      				powershell 'python test_stress.py'
+      				sh 'python test_stress.py'
 					}
 				}
 				
@@ -52,12 +52,12 @@ pipeline{
 				steps{
 					script{
     				if (env.BRANCH_NAME == 'develop') {
-    					powershell 'git checkout -b release || git checkout release'	
-    					powershell 'git fetch'	
-    					powershell 'git pull'
-    					powershell 'git merge origin/develop'
-    					powershell 'git commit --allow-empty -m "release the application"'
-    					powershell 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
+    					sh 'git checkout -b release || git checkout release'	
+    					sh 'git fetch'	
+    					sh 'git pull'
+    					sh 'git merge origin/develop'
+    					sh 'git commit --allow-empty -m "release the application"'
+    					sh 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
 					}
 				}
 				
@@ -88,9 +88,9 @@ pipeline{
      		steps{
      			script{
      				if (env.BRANCH_NAME == 'release') {
-							powershell 'git checkout -b main || git checkout main'
-							powershell 'git merge origin/release'
-							powershell 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
+							sh 'git checkout -b main || git checkout main'
+							sh 'git merge origin/release'
+							sh 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
 		    	}
 				}
 			}
@@ -101,7 +101,7 @@ pipeline{
      		steps{
      			script{
      				if (env.BRANCH_NAME != 'master') {
-							powershell 'docker rmi -f app'
+							sh 'docker rmi -f app'
 		    	}
 				}
 			}
