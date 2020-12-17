@@ -10,7 +10,7 @@ except ImportError:
 class TestClassifier(unittest.TestCase):
 
 	
-	def stress_test(self):
+	def test_stress(self):
 		start = time.time()
 		for i in range(1000):
 			params = {
