@@ -93,7 +93,7 @@ pipeline{
      		steps{
      			script{
      				if (env.BRANCH_NAME == 'release') {
-							sh 'git checkout -b main || git checkout main'
+							sh 'git checkout -b master || git checkout master'
 							sh 'git merge origin/release'
 							sh 'git push -f https://Kimpouni:codelyoko_93@github.com/AnasE17/Project-Data-Engineering-2.git'
 		    	}
