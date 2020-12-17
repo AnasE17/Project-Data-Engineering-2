@@ -18,7 +18,7 @@ pipeline {
       steps{
   			script{
   				if (env.BRANCH_ENV != 'master' ) {
-		    		sh 'docker run -p 5000:5000 app'
+		    		sh 'docker run -d -p  5000:5000 app'
 		  		}
 				}
     	}
@@ -28,8 +28,8 @@ pipeline {
      		steps{
      			script{
      				if (env.BRANCH_NAME == 'feature' ) {
-							sh 'python test_unit.py'
-              sh 'python test_integration.py'
+							sh 'python3 test_unit.py'
+              sh 'python3 test_integration.py'
 		    	}
 				}
 			}
@@ -38,7 +38,7 @@ pipeline {
 				steps{
 					script{
     				if (env.BRANCH_NAME == 'develop') {
-      				sh 'python test_stress.py'
+      				sh 'python3 test_stress.py'
 					}
 				}
 				
