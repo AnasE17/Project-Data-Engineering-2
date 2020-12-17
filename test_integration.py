@@ -38,4 +38,8 @@ class MyTestCase(unittest.TestCase):
 
 
 if __name__ == '__main__':
+    nltk.download('stopwords')
+    nltk.download('punkt')
+    nltk.download('words')
+    nltk.download('wordnet')
     unittest.main()
