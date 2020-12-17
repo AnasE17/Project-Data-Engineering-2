@@ -15,7 +15,7 @@ pipeline{
       steps{
   			script{
   				if (env.BRANCH_ENV != 'master' ) {
-		    		sh 'docker-compose up '
+		    		sh 'docker-compose up -d'
 		  		}
 				}
     	}
