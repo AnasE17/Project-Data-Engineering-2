@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from flask_cors import CORS
+import nltk
 
 try:
     from .model import get_tweet_similar, preprocessText
