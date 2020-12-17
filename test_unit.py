@@ -9,19 +9,25 @@ except ImportError:
 class TestClassifier(unittest.TestCase):
     
     def test_obama(self):
-        self.assertRegex(
-            get_tweet_similar('Obama')[0]['text'],
-            'Obama')
+        rep=requests.post('http://localhost:5000/', data=params)
+        params = {
+           'txt': "Obama",
+           "form_type": "submit_txt"
+        }
         print("Testing Obama as a query \n")
-        print("First result :"+get_tweet_similar('Obama')[0]['text']+"\n")
+        print("result :"+rep.content+"\n")
+        self.assertEqual(response.status_code,200)
 
 
-    def test_hillary(self):
-        self.assertRegex(
-            get_tweet_similar('Hillary')[0]['text'],
-            'Hillary')
+     def test_hillary(self):
+        rep=requests.post('http://localhost:5000/', data=params)
+        params = {
+           'txt': "hillary",
+           "form_type": "submit_txt"
+        }
         print("Testing Hillary as a query \n")
-        print("First result :"+get_tweet_similar('Hillary')[0]['text']+"\n")
+        print("result :"+rep.content+"\n")
+        self.assertEqual(response.status_code,200)
 
  
 
