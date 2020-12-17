@@ -7,7 +7,7 @@ pipeline {
   	stage('Build docker image'){
   		steps{
   			script{
-  				if (env.BRANCH_ENV != 'master') {
+  				if (env.BRANCH_ENV != 'feature') {
 		    		sh "docker build -t app ."
 		  		}
 				}
@@ -17,7 +17,7 @@ pipeline {
     stage('Run containerized application'){
       steps{
   			script{
-  				if (env.BRANCH_ENV != 'master' ) {
+  				if (env.BRANCH_ENV != 'feature' ) {
 		    		sh 'docker run -d -p  5000:5000 app'
 		  		}
 				}
