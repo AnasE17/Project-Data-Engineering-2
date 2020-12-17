@@ -10,11 +10,11 @@ except ImportError:
 class TestClassifier(unittest.TestCase):
     
     def test_obama(self):
-        rep=requests.post('http://localhost:5000/', data=params)
         params = {
            'txt': "Obama",
            "form_type": "submit_txt"
         }
+        rep=requests.post('http://localhost:5000/', data=params)
         print("Testing Obama as a query \n")
         print("result :"+rep.content+"\n")
         self.assertEqual(response.status_code,200)
