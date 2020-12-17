@@ -57,7 +57,9 @@ pipeline{
 				steps{
 					script{
     				if (env.BRANCH_NAME == 'develop') {
-    					sh 'git checkout -b release || git checkout release'	
+					sh 'git config --global user.email "kimpouni.kern@hotmail.com"'
+					sh 'git config --global user.name "Kimpouni"'
+					sh 'git checkout -b release || git checkout release'	
     					sh 'git fetch'	
     					sh 'git pull'
     					sh 'git merge origin/develop'
